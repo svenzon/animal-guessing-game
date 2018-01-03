@@ -1,9 +1,7 @@
-@font-face {
-    font-family: 'Josefin Sans', sans-serif;
-    src: url('https://fonts.googleapis.com/css?family=Josefin+Sans|Righteous');
-}
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
 
 body {
+    margin: 0;
     background: #2F4F4F;
     font-family: 'Josefin Sans', sans-serif;
     color: #ffffff;
@@ -12,18 +10,19 @@ body {
 #siteHeader {
     background: #c94b4b;
     background: linear-gradient(to bottom, #FC354C, #B22222);
-    margin: 0 auto;
+    margin-top: 0px;
     text-align: center;
     width: 100%;
     min-height: 120px;
 }
 
-#siteHeader > h1 {
-    margin: 0 auto;
+h1 {
+    color:#EEE8AA;
 }
 
 button {
-    margin: 8px;
+    display: inline-block;
+    margin: 0 auto;
     border-radius: 20%;
     border-style: none;
     border-bottom: 4px solid #696969;
@@ -32,8 +31,12 @@ button {
 }
 
 button:active {
-    border-bottom: 1px solid #696969;
+    border-bottom: none;
     cursor: none;
+}
+
+.inactive {
+    display: none;
 }
 
 #yesBtn {
