@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'Josefin Sans', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Josefin+Sans|Righteous');
+}
+
+body {
+    background: #2F4F4F;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #ffffff;
+}
+
+#siteHeader {
+    background: #c94b4b;
+    background: linear-gradient(to bottom, #FC354C, #B22222);
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+    min-height: 120px;
+}
+
+#siteHeader > h1 {
+    margin: 0 auto;
+}
+
+button {
+    margin: 8px;
+    border-radius: 20%;
+    border-style: none;
+    border-bottom: 4px solid #696969;
+    height: 80px;
+    width: 120px;
+}
+
+button:active {
+    border-bottom: 1px solid #696969;
+    cursor: none;
+}
+
+#yesBtn {
+    background: #00FF7F;
+}
+
+#noBtn {
+    background: #DC143C;
+}
