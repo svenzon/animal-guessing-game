@@ -2,37 +2,50 @@
 
 body {
     margin: 0;
+    padding: 0;
     background: #2F4F4F;
     font-family: 'Josefin Sans', sans-serif;
     color: #ffffff;
 }
 
 #siteHeader {
-    background: #c94b4b;
+    background: #B22222;
     background: linear-gradient(to bottom, #FC354C, #B22222);
-    margin-top: 0px;
-    text-align: center;
+    margin-top: -20px;
     width: 100%;
-    min-height: 120px;
+    min-height: 100px;
+    text-align: center;
 }
 
 h1 {
+    padding: 5%;
     color:#EEE8AA;
+}
+
+#content {
+    margin: 0 auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+p#questionDisplay {
+    font-size: 24px;
 }
 
 button {
     display: inline-block;
-    margin: 0 auto;
+    margin: 10px 10px;
+    height: 80px;
+    width: 120px;
     border-radius: 20%;
     border-style: none;
     border-bottom: 4px solid #696969;
-    height: 80px;
-    width: 120px;
+    outline: none;
 }
 
 button:active {
-    border-bottom: none;
-    cursor: none;
+    border-bottom: 4px solid #696969;
+    transform: translateY(2px);
 }
 
 .inactive {

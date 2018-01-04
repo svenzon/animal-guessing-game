@@ -3,7 +3,6 @@ var question = "";
 var initAnimal = "cat";
 
 var messageDisplay = document.querySelector("#questionDisplay");
-var buttons = document.querySelectorAll("button");
 var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 
