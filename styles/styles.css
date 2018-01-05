@@ -8,7 +8,7 @@ body {
     color: #ffffff;
 }
 
-#siteHeader {
+#pageHeader {
     background: #B22222;
     background: linear-gradient(to bottom, #FC354C, #B22222);
     margin-top: -20px;
@@ -40,7 +40,6 @@ button {
     border-radius: 20%;
     border-style: none;
     border-bottom: 4px solid #696969;
-    outline: none;
 }
 
 button:active {
@@ -48,6 +47,12 @@ button:active {
     transform: translateY(2px);
 }
 
+/* Obs! Ge denna klass ett bättre namn. */
+.active {
+    display: block;
+}
+
+/* Denna med! */
 .inactive {
     display: none;
 }
