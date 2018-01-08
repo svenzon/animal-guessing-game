@@ -1,7 +1,7 @@
 var numGuesses = 0;
 var question = "";
 var initAnimal = "cat";
-var initQuestion = `Are you thinking of a ${initAnimal}?`
+var initQuestion = `Are you thinking of a ${initAnimal}?`;
 var userInput = '';
 
 var messageDisplay = document.querySelector("#questionDisplay");
