@@ -1,0 +1,17 @@
+{
+    "animals": [
+        {
+        "name": "cat",
+        "mammal": true,
+        "fourlegged": true,
+        "feline": true
+    },
+    {
+        "name": "parrot",
+        "mammal": false,
+        "aquatic": false,
+        "winged": true,
+        "bird": true
+    }
+    ]
+}

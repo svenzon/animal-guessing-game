@@ -2,20 +2,18 @@
 <html>
     <head>
         <title>20 Questions</title>
-        <link rel="stylesheet" href="./styles/styles.css">
+        <link rel="stylesheet" href="./css/styles.css">
     </head>
     <body>
-        <header id="pageHeader">
+        <article id="content">
             <h1>Incredibly Exciting Animal Guessing Game</h1>
-        </header>
-        <div id="content">
             <p id="questionDisplay">Question goes here.</p>
             <button id="yesBtn">Yeah</button>
             <button id="noBtn">Nah</button>
-            <form>
-                <input id="inputAnimal" class="inactive" type="text" required pattern="[a-z]">
+            <form onsubmit="newAnimal()">
+                <input id="inputAnimal" class="inactive" type="text" required>
             </form>
-        </div>
-        <script src="./scripts/game.js"></script>
+        </article>
+        <script src="./js/game.js"></script>
     </body>
 </html>

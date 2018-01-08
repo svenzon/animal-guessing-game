@@ -1,28 +1,23 @@
 var numGuesses = 0;
 var question = "";
 var initAnimal = "cat";
+var initQuestion = `Are you thinking of a ${initAnimal}?`
+var userInput = '';
 
 var messageDisplay = document.querySelector("#questionDisplay");
 var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 var animalInput = document.querySelector("#inputAnimal");
 
-init();
-
-function init() {
-    messageDisplay.innerHTML = `Are you thinking of a ${initAnimal}?`;
+//self-invoking function which adds necessary eventlisteners
+(function init() {
+    messageDisplay.innerHTML = initQuestion;
 
     noBtn.addEventListener("click", function(){
         numGuesses++;
         checkNumGuesses(numGuesses);
     });
-
-    animalInput.addEventListener('invalid', function(e){
-        if(animalInput.validity.valueMissing){
-            e.target.setCustomValidity("Hey, gimme something to work with here!");
-        }
-    });
-}
+}());
 
 function checkAnswer(answer) {
     //check if player answered 'yes' or 'no'
@@ -40,6 +35,8 @@ function checkNumGuesses(numGuesses) {
     }
 }
 
-function newAnimal(playerInput) {
+function newAnimal() {
     //use player input to create a new animal
+    userInput = animalInput.value;
+    alert(userInput);
 }
