@@ -8,15 +8,6 @@ body {
     color: #ffffff;
 }
 
-#pageHeader {
-    background: #B22222;
-    background: linear-gradient(to bottom, #FC354C, #B22222);
-    margin-top: -20px;
-    width: 100%;
-    min-height: 100px;
-    text-align: center;
-}
-
 h1 {
     padding: 5%;
     color:#EEE8AA;
@@ -26,10 +17,6 @@ h1 {
     margin: 0 auto;
     max-width: 800px;
     text-align: center;
-}
-
-p#questionDisplay {
-    font-size: 24px;
 }
 
 button {

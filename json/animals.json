@@ -1,17 +1,22 @@
 {
-    "animals": [
+    "mammals": [
         {
-        "name": "cat",
-        "mammal": true,
-        "fourlegged": true,
-        "feline": true
-    },
-    {
+            "name": "house cat",
+            "type": "feline",
+            "fourlegged": true
+        },
+        {
+            "name": "dog",
+            "type": "canine",
+            "fourlegged": true
+        }
+    ],
+    "non-mammals": [
+        {
         "name": "parrot",
+        "type": "bird",
         "mammal": false,
-        "aquatic": false,
-        "winged": true,
-        "bird": true
-    }
+        "aquatic": false
+        }
     ]
 }
