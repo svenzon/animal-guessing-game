@@ -1,7 +1,6 @@
-var numGuesses = 0;
 var question = "";
-var initAnimal = "cat";
-var initQuestion = `Are you thinking of a ${initAnimal}?`;
+var initAnimal = "";
+var question = `Are you thinking of a ${initAnimal}?`;
 var userInput = "";
 
 var messageDisplay = document.querySelector("#questionDisplay");
@@ -9,21 +8,19 @@ var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 var animalInput = document.querySelector("#inputAnimal");
 
-var requestURL = 'https://github.com/svenzon/animal-guessing-game/blob/master/json/animals.json';
+var requestURL = './json/animals.json';
 
 //self-invoking function which adds necessary eventlisteners
 (function init () {
     yesBtn.addEventListener("click", function(){
-        numGuesses++;
-        checkNumGuesses(numGuesses);
+        //check answer and compare to JSON        
     });
 
     noBtn.addEventListener("click", function (){
-        numGuesses++;
-        checkNumGuesses(numGuesses);
+        //check answer and compare to JSON
     });
 
-    //getJSON();
+    getJSON();
 }());
 
 function getJSON() {
@@ -33,18 +30,24 @@ function getJSON() {
     request.send();
 
     request.onload = function() {
-        let animals = request.response;
-        console.log(animals);
+        let allAnimals = request.response;
+        showAnimal(allAnimals);
     }
+}
+
+function showAnimal (jsonObj) {
+    let animals = jsonObj["animals"];
+    initAnimal = animals[3].name;
+    messageDisplay.textContent = `Are you thinking of a ${initAnimal}?`;   
 }
 
 function checkAnswer(answer) {
     //check if player answered 'yes' or 'no'
 }
 
-function checkNumGuesses(numGuesses) {
+function checkGuess() {
     //check the number of questions asked
-    if (numGuesses >= 5) {
+    //if (no alternatives left) {
         //change question, remove buttons and show input field
         //note: move to separate function
         question = `What animal did you think of?`;
@@ -52,10 +55,11 @@ function checkNumGuesses(numGuesses) {
         yesBtn.classList.toggle("inactive");
         noBtn.classList.toggle("inactive");
         animalInput.classList.toggle("inactive");
-    }
+    //}
 }
 
 function newAnimal() {
     //use player input to create a new animal
     userInput = animalInput.value;
+    
 }
