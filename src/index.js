@@ -8,7 +8,7 @@ var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 var animalInput = document.querySelector("#inputAnimal");
 
-var requestURL = './json/animals.json';
+// var requestURL = './json/animals.json';
 
 //self-invoking function which adds necessary eventlisteners
 (function init () {
@@ -19,21 +19,20 @@ var requestURL = './json/animals.json';
     noBtn.addEventListener("click", function (){
         //check answer and compare to JSON
     });
-
-    getJSON();
 }());
 
-function getJSON() {
-    let request = new XMLHttpRequest();
-    request.open('GET', requestURL);
-    request.responseType = 'json';
-    request.send();
+//remove this later
+// function getJSON() {
+//     let request = new XMLHttpRequest();
+//     request.open('GET', requestURL);
+//     request.responseType = 'json';
+//     request.send();
 
-    request.onload = function() {
-        let allAnimals = request.response;
-        showAnimal(allAnimals);
-    }
-}
+//     request.onload = function() {
+//         let allAnimals = request.response;
+//         showAnimal(allAnimals);
+//     }
+// }
 
 function showAnimal (jsonObj) {
     let animals = jsonObj["animals"];
