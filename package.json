@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel open:src",
-    "open:src": "node buildScripts/srcServer.js"
+    "open:src": "babel-node buildScripts/srcServer.js"
   },
   "repository": {
     "type": "git",
@@ -19,7 +19,10 @@
   },
   "homepage": "https://github.com/svenzon/animal-guessing-game#readme",
   "dependencies": {
-    "express": "^4.16.2",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "babel-register": "^6.26.0",
     "localtunnel": "^1.8.3",
     "mongodb": "^3.0.1",
     "mongoose": "^4.13.9",
@@ -27,9 +30,8 @@
     "open": "0.0.5"
   },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
-    "babel-register": "^6.26.0",
-    "npm-run-all": "^4.1.2"
+    "express": "^4.16.2",
+    "npm-run-all": "^4.1.2",
+    "webpack": "^3.10.0"
   }
 }
