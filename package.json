@@ -1,0 +1,33 @@
+{
+  "name": "animal-guessing-game",
+  "version": "1.0.0",
+  "description": "Animal Guessing Game",
+  "main": "index.js",
+  "scripts": {
+    "prestart": "babel-node buildScripts/startMessage.js",
+    "start": "npm-run-all --parallel open:src",
+    "open:src": "node buildScripts/srcServer.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/svenzon/animal-guessing-game.git"
+  },
+  "author": "Anders Svensson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/svenzon/animal-guessing-game/issues"
+  },
+  "homepage": "https://github.com/svenzon/animal-guessing-game#readme",
+  "dependencies": {
+    "babel-preset-env": "^1.6.1",
+    "express": "^4.16.2",
+    "localtunnel": "^1.8.3",
+    "mongodb": "^3.0.1",
+    "nsp": "^3.1.0",
+    "open": "0.0.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "npm-run-all": "^4.1.2"
+  }
+}

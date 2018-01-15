@@ -37,7 +37,6 @@ function getJSON() {
 
 function showAnimal (jsonObj) {
     let animals = jsonObj["animals"];
-    initAnimal = animals[3].name;
     messageDisplay.textContent = `Are you thinking of a ${initAnimal}?`;   
 }
 
@@ -60,6 +59,4 @@ function checkGuess() {
 
 function newAnimal() {
     //use player input to create a new animal
-    userInput = animalInput.value;
-    
 }
