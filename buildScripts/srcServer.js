@@ -3,7 +3,6 @@ import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
-// import MongoClient from 'mongodb';
 
 const port = 3000;
 const app = express();

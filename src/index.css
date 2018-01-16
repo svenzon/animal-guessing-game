@@ -37,12 +37,12 @@ button:active {
 }
 
 /* Obs! Ge denna klass ett bättre namn. */
-.active {
+.available {
     display: block;
 }
 
 /* Denna med! */
-.inactive {
+.unavailable {
     display: none;
 }
 
