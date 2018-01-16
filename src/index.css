@@ -27,6 +27,8 @@ button {
     border-radius: 20%;
     border-style: none;
     border-bottom: 4px solid #696969;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 24px;
 }
 
 button:active {
