@@ -50,5 +50,4 @@ function checkGuess() {
 function newAnimal() {
     //use player input to create a new animal and insert into db
     console.log(animalInput.value);
-    init();
 }
