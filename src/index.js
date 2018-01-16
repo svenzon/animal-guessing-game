@@ -11,37 +11,21 @@ var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 var animalInput = document.querySelector("#inputAnimal");
 
-var requestURL = './json/animals.json';
-
 //self-invoking function which adds necessary eventlisteners
 //and opens database connection
 (function init () {
     yesBtn.addEventListener("click", function(){
         console.log("yes");
-        //check answer and compare to JSON        
+        //check answer and compare to db        
     });
 
     noBtn.addEventListener("click", function (){
         console.log("no");
-        //check answer and compare to JSON
+        //check answer and compare to db
     });
-
 }());
 
-// function getJSON() {
-//     let request = new XMLHttpRequest();
-//     request.open('GET', requestURL);
-//     request.responseType = 'json';
-//     request.send();
-
-//     request.onload = function() {
-//         let allAnimals = request.response;
-//         showAnimal(allAnimals);
-//     }
-// }
-
-function showAnimal (jsonObj) {
-    let animals = jsonObj["animals"];
+function showAnimal () {
     msgDisplay.textContent = `Are you thinking of a ${initAnimal}?`;   
 }
 
@@ -63,5 +47,5 @@ function checkGuess() {
 }
 
 function newAnimal() {
-    //use player input to create a new animal
+    //use player input to create a new animal and insert into db
 }
