@@ -36,12 +36,10 @@ button:active {
     transform: translateY(2px);
 }
 
-/* Obs! Ge denna klass ett bättre namn. */
 .available {
     display: block;
 }
 
-/* Denna med! */
 .unavailable {
     display: none;
 }

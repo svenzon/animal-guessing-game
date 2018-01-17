@@ -1,12 +1,13 @@
 import css from './index.css';
 
+// var dataBase = require("../db/animals");
+//var dataBase = require('./database');
+
 var fromDB = '';
 var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
 var finalQuestion = `Are you thinking of a ${finalGuess}?`;
 var userInput = "";
-
-var btnClicks = 0;
 
 var msgDisplay = document.querySelector("#questionDisplay");
 var yesBtn = document.querySelector("#yesBtn");
@@ -18,12 +19,10 @@ init();
 //adds necessary eventlisteners
 function init () {
     yesBtn.addEventListener("click", function(){
-        console.log("yes");
         //check answer and compare to db        
     });
 
     noBtn.addEventListener("click", function (){
-        console.log("no");
         //check answer and compare to db
     });
 };

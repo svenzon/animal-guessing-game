@@ -7,7 +7,7 @@ export default {
     entry: [
       path.resolve(__dirname, 'src/index')
     ],
-    target: 'web',
+    target: 'node',
     output: {
       path: path.resolve(__dirname, 'src'),
       publicPath: '/',
