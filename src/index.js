@@ -1,8 +1,5 @@
 import css from './index.css';
 
-// var dataBase = require("../db/animals");
-//var dataBase = require('./database');
-
 var fromDB = '';
 var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
