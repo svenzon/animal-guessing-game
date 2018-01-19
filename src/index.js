@@ -1,5 +1,4 @@
 import css from "./index.css";
-// import * as dbModule from '../db/db';
 
 var fromDB = "";
 var stdQuestion = `Is the animal ${fromDB}?`;
