@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel open:src",
-    "open:src": "babel-node buildScripts/srcServer.js"
+    "open:src": "babel-node buildScripts/server.js"
   },
   "repository": {
     "type": "git",
