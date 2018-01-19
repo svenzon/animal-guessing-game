@@ -13,21 +13,28 @@ const dbCollection = "animals";
 
 module.exports = {
     
-    connectToDB: function () {
+    connectToDB: function() {
         MongoClient.connect(dbURI, (err, client) => {
             if (!err) {
-                var db = client.db("animal_app");
+                let db = client.db("animal_app");
                 console.log(chalk.blue("Connected!"));
-                db.collection(dbCollection, function (err, returnCollection) {
-                    returnCollection.find({ "feature": "carnivorous" }).project({ name: 1, _id: 0}).toArray(function (err, items){
-                        items.forEach(function(element){
-                            console.log(element);
-                        });
-                    });
-                });
             } else {
                 console.log(chalk.red("Oh no!"));
             }
+        });
+    },
+
+    getDB: function() {
+        return db;
+    },
+
+    listCollection: function() {
+        db.collection(dbCollection, function (err, returnCollection) {
+            returnCollection.find({ "feature": "carnivorous" }).project({ name: 1, _id: 0}).toArray(function (err, items){
+                items.forEach(function(element){
+                    console.log(element);
+                });
+            });
         });
     }
 }

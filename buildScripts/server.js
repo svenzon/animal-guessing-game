@@ -15,10 +15,12 @@ app.use(require("webpack-dev-middleware")(compiler, {
     publicPath: config.output.publicPath
 }));
 
+//serve the main html file
 app.get("/", function(req,res) {
     res.sendFile(path.join(__dirname, "../src/index.html"));
 });
 
+//check if port 3000 is in use, otherwise start server and open database connection
 app.listen(port, function(err) {
     if (err) {
         console.log(err);

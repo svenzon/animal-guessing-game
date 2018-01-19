@@ -1,6 +1,7 @@
-import css from './index.css';
+import css from "./index.css";
+// import * as dbModule from '../db/db';
 
-var fromDB = '';
+var fromDB = "";
 var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
 var finalQuestion = `Are you thinking of a ${finalGuess}?`;
@@ -11,25 +12,25 @@ var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
 var animalInput = document.querySelector("#inputAnimal");
 
-init();
-
 //adds necessary eventlisteners
-function init () {
-    yesBtn.addEventListener("click", function(){
-        //check answer and compare to db        
-    });
-
-    noBtn.addEventListener("click", function (){
+function init() {
+    yesBtn.addEventListener("click", function () {
         //check answer and compare to db
     });
-};
 
-function showAnimal () {
-    msgDisplay.textContent = `Are you thinking of a ${initAnimal}?`;   
+    noBtn.addEventListener("click", function () {
+        //check answer and compare to db
+    });
+}
+
+init();
+
+function showAnimal() {
+    msgDisplay.textContent = `Are you thinking of a ${initAnimal}?`;
 }
 
 function checkAnswer(answer) {
-    //check if player answered 'yes' or 'no'
+    //check if player answered "yes" or "no"
 }
 
 function checkGuess() {

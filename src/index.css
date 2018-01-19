@@ -24,7 +24,7 @@ button {
     margin: 10px 20px;
     height: 80px;
     width: 100px;
-    border-radius: 45%;
+    border-radius: 50%;
     border-style: none;
     border-bottom: 4px solid #696969;
     font-family: 'Josefin Sans', sans-serif;
@@ -32,8 +32,8 @@ button {
 }
 
 button:active {
-    border-bottom: 4px solid #696969;
-    transform: translateY(2px);
+    border-bottom: 4px solid #2F4F4F;
+    transform: translateY(3px);
 }
 
 .available {
@@ -45,9 +45,9 @@ button:active {
 }
 
 #yesBtn {
-    background-image: radial-gradient(#00FF7F 30%, #00994C 70%);
+    background-image: radial-gradient(circle, #00FF7F 35%, #00994C 65%);
 }
 
 #noBtn {
-    background-image: radial-gradient(#DC143C 30%, #840C24 70%);
+    background-image: radial-gradient(circle, #DC143C 35%, #840C24 65%);
 }
