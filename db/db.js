@@ -13,6 +13,7 @@ const dbCollection = "animals";
 
 module.exports = {
     
+    //connect to database
     connectToDB: function() {
         MongoClient.connect(dbURI, (err, client) => {
             if (!err) {
@@ -24,13 +25,15 @@ module.exports = {
         });
     },
 
+    //get database if needed
     getDB: function() {
         return db;
     },
 
+    //list names of all animals in collection
     listCollection: function() {
         db.collection(dbCollection, function (err, returnCollection) {
-            returnCollection.find({ "feature": "carnivorous" }).project({ name: 1, _id: 0}).toArray(function (err, items){
+            returnCollection.find({}).project({ name: 1, _id: 0}).toArray(function (err, items){
                 items.forEach(function(element){
                     console.log(element);
                 });
