@@ -21,14 +21,14 @@ h1 {
 
 button {
     display: inline-block;
-    margin: 10px 10px;
+    margin: 10px 20px;
     height: 80px;
-    width: 120px;
-    border-radius: 20%;
+    width: 100px;
+    border-radius: 45%;
     border-style: none;
     border-bottom: 4px solid #696969;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 24px;
+    font-size: 22px;
 }
 
 button:active {
@@ -45,9 +45,9 @@ button:active {
 }
 
 #yesBtn {
-    background: #00FF7F;
+    background-image: radial-gradient(#00FF7F 30%, #00994C 70%);
 }
 
 #noBtn {
-    background: #DC143C;
+    background-image: radial-gradient(#DC143C 30%, #840C24 70%);
 }
