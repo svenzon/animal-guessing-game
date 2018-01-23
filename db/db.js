@@ -8,13 +8,12 @@
 import MongoClient from "mongodb";
 import chalk from "chalk";
 
-const dbURI = "mongodb://localhost:27017/animal_app";
+const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 const dbCollection = "animals";
 
 module.exports = {
-    
     //connect to database
-    connectToDB: function() {
+    connectToDB: function () {
         MongoClient.connect(dbURI, (err, client) => {
             if (!err) {
                 let db = client.db("animal_app");
@@ -26,7 +25,7 @@ module.exports = {
     },
 
     //get database if needed
-    getDB: function() {
+    getDB: function () {
         return db;
     },
 
@@ -34,10 +33,11 @@ module.exports = {
     listCollection: function() {
         db.collection(dbCollection, function (err, returnCollection) {
             returnCollection.find({}).project({ name: 1, _id: 0}).toArray(function (err, items){
-                items.forEach(function(element){
+                items.forEach(function (element) {
                     console.log(element);
                 });
             });
+            db.close();
         });
     }
-}
+};
