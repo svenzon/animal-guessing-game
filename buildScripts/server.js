@@ -12,6 +12,7 @@ const port = 3000;
 const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 const dbCollection = "animals";
 
+//connect to database using the URI stated above
 mongoose.connect(dbURI, function(err){
     useMongoClient: true
 });
@@ -19,6 +20,12 @@ mongoose.connect(dbURI, function(err){
 mongoose.Promise = global.Promise;
 db = mongoose.connection;
 
+//print error to console if connection fails
+db.on("error", function(){
+    console.log(chalk.redBright("Connection failed!"));
+});
+
+//print connection message and listen on port 3000
 db.on("connected", function(){
     console.log(chalk.blueBright("Connected to database!"));
 
@@ -30,11 +37,8 @@ db.on("connected", function(){
     });
 });
 
+//serve all index files (html, css, js)
 app.use(express.static(path.join(__dirname, "../src/")));
-
-db.on("error", function(){
-    console.log(chalk.redBright("Connection failed!"));
-});
 
 var animalSchema = new mongoose.Schema({
     name: String,
