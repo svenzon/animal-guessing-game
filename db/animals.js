@@ -1,5 +1,7 @@
-var mongoose = require('mongoose');
-var mongoDB = "mongodb://localhost:27017/animal_app/animals";
+import mongoose from "mongoose";
+
+var mongoDB = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
+
 mongoose.connect(mongoDB, {
     useMongoClient: true
 });
@@ -7,35 +9,40 @@ mongoose.connect(mongoDB, {
 mongoose.Promise = global.Promise;
 var db = mongoose.connection;
 
-db.on('error', console.error.bind(console, 'Connection failed'));
+db.on("error", console.error.bind(console, "Connection failed"));
 
 var animalSchema = new mongoose.Schema({
     name: String,
     type: String,
     mammal: Boolean,
     aquatic: Boolean,
+    predatory: Boolean,
     size: String,
     feature: String
 });
 
-var Animal = mongoose.model("Animal", animalSchema);
+var Animal = db.model("Animal", animalSchema);
+
+Animal.find({}, { _id: 0, name: 1 }, function(err, docs){
+    console.log(docs);
+});
 
 module.exports = Animal;
 
-// var dog = new Animal({
-//     name: "dog",
-//     type: "canine",
-//     mammal: true,
+// var snake = new Animal({
+//     name: "snake",
+//     type: "reptile",
+//     mammal: false,
 //     aquatic: false,
-//     size: "medium",
-//     feature: "bark"
+//     size: "small",
+//     feature: "hiss"
 // });
 
-// dog.save(function(err, dog){
+// snake.save(function(err, snake){
 //     if(err) {
 //         console.log("Whoops");
 //     } else {
 //         console.log("Animal saved");
-//         console.log(dog);
+//         console.log(snake);
 //     }
 // });

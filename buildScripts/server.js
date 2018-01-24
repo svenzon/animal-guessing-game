@@ -1,25 +1,27 @@
 import bodyParser from "body-parser";
 import chalk from "chalk";
 import express from "express";
-import MongoClient from "mongodb";
+import mongoose from "mongoose";
 import open from "open";
 import path from "path";
+
+var db;
 
 const app = express();
 const port = 3000;
 const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 const dbCollection = "animals";
 
-var db;
-var dbName;
+mongoose.connect(dbURI, function(err){
+    useMongoClient: true
+});
 
-MongoClient.connect(dbURI, (err, client) => {
-    if (err) return console.log(chalk.red(err));
+mongoose.Promise = global.Promise;
+db = mongoose.connection;
 
-    db = client.db("AnimalDatabase");
-    console.log(chalk.greenBright(`Connected to database ${db}!`));
+db.on("connected", function(){
+    console.log(chalk.blueBright("Connected to database!"));
 
-    //throw error if port 3000 is in use, otherwise start server and open database connection
     app.listen(port, function(err) {
         if (err) return console.log(chalk.red(err));
 
@@ -28,24 +30,27 @@ MongoClient.connect(dbURI, (err, client) => {
     });
 });
 
+app.use(express.static(path.join(__dirname, "../src/")));
+
+db.on("error", function(){
+    console.log(chalk.redBright("Connection failed!"));
+});
+
+var animalSchema = new mongoose.Schema({
+    name: String,
+    type: String,
+    mammal: Boolean,
+    aquatic: Boolean,
+    predatory: Boolean,
+    size: String,
+    feature: String
+});
+
+var Animal = db.model("Animal", animalSchema);
+
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.post("/animals", (req, res) => {
     console.log(req.body);
-});
-
-app.get("/", (req, res) => {
-    db.collection("animals", function (err, returnCollection) {
-        returnCollection.find({}).project({ name: 1, _id: 0}).toArray(function (err, items){
-            items.forEach(function (element) {
-                console.log(element);
-            });
-        });
-    });
-});
-
-//serve the main html file
-app.get("/", (req,res) => {
-    res.sendFile(path.join(__dirname, "../src/index.html"));
 });

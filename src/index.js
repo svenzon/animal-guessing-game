@@ -1,5 +1,3 @@
-import css from "./index.css";
-
 var fromDB = "";
 var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
