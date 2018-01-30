@@ -1,5 +1,3 @@
-var AnimalHandler = require("../buildScripts/server");
-
 var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
 var finalQuestion = `Are you thinking of a ${finalGuess}?`;
@@ -13,9 +11,6 @@ var noBtn = document.querySelector("#noBtn");
 //adds necessary eventlisteners
 function init() {
     yesBtn.addEventListener("click", function () {
-        AnimalHandler.find({}, { _id: 0, name: 1 }, function(err, docs){
-            console.log(docs);
-        });
         //check answer and compare to db
     });
 
