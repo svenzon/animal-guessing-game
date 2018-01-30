@@ -43,9 +43,14 @@ db.on("connected", function(){
 //serve all index files (html, css, js)
 // app.use(express.static(path.join(__dirname, "../src/")));
 
+app.set("view engine", "ejs");
+
 app.get("/", function(req, res){
-    res.render("index.ejs");
+    res.render("index");
 })
+
+//use static files (css, js) in public directory
+app.use(express.static("public"));
 
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
