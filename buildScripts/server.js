@@ -13,11 +13,13 @@ const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 const dbCollection = "animals";
 
 //connect to database using the URI stated above
-mongoose.connect(dbURI, function(err){
+module.exports = mongoose.connect(dbURI, function(err){
     useMongoClient: true
 });
 
 mongoose.Promise = global.Promise;
+
+//save database connection for re-use
 db = mongoose.connection;
 
 //print error to console if connection fails
@@ -40,21 +42,10 @@ db.on("connected", function(){
 //serve all index files (html, css, js)
 app.use(express.static(path.join(__dirname, "../src/")));
 
-var animalSchema = new mongoose.Schema({
-    name: String,
-    type: String,
-    mammal: Boolean,
-    aquatic: Boolean,
-    predatory: Boolean,
-    size: String,
-    feature: String
-});
-
-var Animal = db.model("Animal", animalSchema);
-
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
 
+//print text from input to console
 app.post("/animals", (req, res) => {
     console.log(req.body);
 });

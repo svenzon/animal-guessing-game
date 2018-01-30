@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans:400,700');
 
+/* removes body margins, sets page bg color */
 body {
     margin: 0;
     padding: 0;
@@ -8,19 +9,21 @@ body {
     color: #ffffff;
 }
 
+/* pushes the page title down a bit, gives it golden color */
 h1 {
     padding: 5%;
     color:#EEE8AA;
 }
 
+/* centers text content and buttons */
 #content {
     margin: 0 auto;
     text-align: center;
-    max-width: 800px;
+    min-width: 600px;
 }
 
+/* makes buttons round, adds border for "3D" effect */
 button {
-    display: inline-block;
     margin: 10px 20px;
     height: 80px;
     width: 100px;
@@ -28,26 +31,36 @@ button {
     border-style: none;
     border-bottom: 4px solid #696969;
     font-family: 'Josefin Sans', sans-serif;
-    font-size: 22px;
+    font-size: 20px;
 }
 
+/* light up button labels when hovered over */
+button:hover {
+    transition: color 0.15s ease-in;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+/* makes button looked pushed down when clicked */
 button:active {
     border-bottom: 4px solid #2F4F4F;
     transform: translateY(3px);
 }
 
-.available {
-    display: block;
-}
-
-.unavailable {
-    display: none;
-}
-
+/* gives buttons gradients for glowing gameshow-esque look */
 #yesBtn {
     background-image: radial-gradient(circle, #00FF7F 35%, #00994C 65%);
 }
 
 #noBtn {
     background-image: radial-gradient(circle, #DC143C 35%, #840C24 65%);
+}
+
+/* classes for toggling UI visibility */
+.available {
+    display: block;
+}
+
+.unavailable {
+    display: none;
 }

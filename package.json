@@ -6,7 +6,6 @@
   "scripts": {
     "babel-node": "babel-node --presets=env",
     "dev": "nodemon --exec npm run babel-node buildScripts/server.js",
-    "mongoose-only": "nodemon --exec babel-node db/animals.js",
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel open:src",
     "open:src": "babel-node buildScripts/server.js"
