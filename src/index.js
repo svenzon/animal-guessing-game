@@ -6,9 +6,9 @@ var finalQuestion = `Are you thinking of a ${finalGuess}?`;
 var userInput = "";
 
 var msgDisplay = document.querySelector("#questionDisplay");
+var animalInput = document.querySelector("#inputAnimal");
 var yesBtn = document.querySelector("#yesBtn");
 var noBtn = document.querySelector("#noBtn");
-var animalInput = document.querySelector("#inputAnimal");
 
 //adds necessary eventlisteners
 function init() {

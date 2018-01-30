@@ -4,6 +4,7 @@ import express from "express";
 import mongoose from "mongoose";
 import open from "open";
 import path from "path";
+import ejs from "ejs";
 
 var db;
 
@@ -40,7 +41,11 @@ db.on("connected", function(){
 });
 
 //serve all index files (html, css, js)
-app.use(express.static(path.join(__dirname, "../src/")));
+// app.use(express.static(path.join(__dirname, "../src/")));
+
+app.get("/", function(req, res){
+    res.render("index.ejs");
+})
 
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
