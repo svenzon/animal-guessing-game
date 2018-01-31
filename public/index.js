@@ -1,6 +1,6 @@
-var stdQuestion = `Is the animal ${fromDB}?`;
+//var stdQuestion = `Is the animal ${fromDB}?`;
 var finalGuess = "";
-var finalQuestion = `Are you thinking of a ${finalGuess}?`;
+//var finalQuestion = `Are you thinking of a ${finalGuess}?`;
 var userInput = "";
 
 var msgDisplay = document.querySelector("#questionDisplay");

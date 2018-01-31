@@ -1,4 +1,4 @@
-let mongoose = require("../db/db");
+import mongoose from "mongoose";
 
 //creates Mongoose schema for animals, restricting some fields to specific values
 let animalSchema = new mongoose.Schema({
@@ -6,28 +6,19 @@ let animalSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    type: {
+    group: {
         type: String,
+        enum: ["amphibian", "bird", "fish", "invertebrate", "mammal", "reptile"],
         required: true
     },
-    mammal: {
+    diet: {
         type: String,
-        enum: ["yes", "no"],
-        required: true
-    },
-    aquatic: {
-        type: String,
-        enum: ["yes", "no"],
-        required: true
-    },
-    predatory: {
-        type: String,
-        enum: ["yes", "no"],
+        enum: ["carnivorous", "omnivorous", "herbivorous"],
         required: true
     },
     size: {
         type: String,
-        enum: ["small", "medium", "large"],
+        enum: ["tiny", "small", "medium", "large", "gigantic"],
         required: true
     },
     feature: {
@@ -36,15 +27,23 @@ let animalSchema = new mongoose.Schema({
     },
 });
 
-let Animal = mongoose.model("Animal", animalSchema);
-module.exports = Animal;
-// var snake = new Animal({
-//     name: "snake",
-//     type: "reptile",
-//     mammal: false,
-//     aquatic: false,
-//     size: "small",
-//     feature: "hiss"
+var animal = mongoose.model("Animal", animalSchema);
+
+module.exports = animal;
+// var newAnimal = new Animal({
+//     name: "alligator",
+//     group: "reptile",
+//     diet: "carnivorous",
+//     size: "large",
+//     feature: ""
+// });
+
+// var newAnimal = new Animal({
+//     name: "crocodile",
+//     group: "reptile",
+//     diet: "carnivorous",
+//     size: "large",
+//     feature: ""
 // });
 
 // snake.save(function(err, snake){

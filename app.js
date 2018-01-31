@@ -1,17 +1,17 @@
 import bodyParser from "body-parser";
 import chalk from "chalk";
+import ejs from "ejs";
 import express from "express";
 import mongoose from "mongoose";
 import open from "open";
 import path from "path";
-import ejs from "ejs";
 
 var db;
 
+//declare variables for express and mongodb
 const app = express();
 const port = 3000;
 const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
-const dbCollection = "animals";
 
 //connect to database using the URI stated above
 module.exports = mongoose.connect(dbURI, function(err){
@@ -23,12 +23,12 @@ mongoose.Promise = global.Promise;
 //save database connection for re-use
 db = mongoose.connection;
 
-//print error to console if connection fails
+//if db connection fails, print error message
 db.on("error", function(){
     console.log(chalk.redBright("Connection failed!"));
 });
 
-//print connection message and listen on port 3000
+//if db connection succeeds, print message and listen on port 3000
 db.on("connected", function(){
     console.log(chalk.blueBright("Connected to database!"));
 
@@ -40,14 +40,13 @@ db.on("connected", function(){
     });
 });
 
-//serve all index files (html, css, js)
-// app.use(express.static(path.join(__dirname, "../src/")));
-
+//set view engine to EJS
 app.set("view engine", "ejs");
 
+//render html from index.ejs template in /views folder
 app.get("/", function(req, res){
     res.render("index");
-})
+});
 
 //use static files (css, js) in public directory
 app.use(express.static("public"));
@@ -55,7 +54,8 @@ app.use(express.static("public"));
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
 
-//print text from input to console
-app.post("/animals", (req, res) => {
-    console.log(req.body);
-});
+//tell the app where to find routes
+let animals = require("./routes/animals");
+
+//use the route
+app.use("/animals", animals);

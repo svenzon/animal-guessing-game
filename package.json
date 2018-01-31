@@ -5,10 +5,10 @@
   "main": "index.js",
   "scripts": {
     "babel-node": "babel-node --presets=env",
-    "dev": "nodemon --exec npm run babel-node buildScripts/server.js",
-    "prestart": "babel-node buildScripts/startMessage.js",
+    "dev": "nodemon --exec npm run babel-node app.js --silent",
+    "prestart": "babel-node messages/startMessage.js",
     "start": "npm-run-all --parallel open:src",
-    "open:src": "babel-node buildScripts/server.js"
+    "open:src": "babel-node app.js"
   },
   "repository": {
     "type": "git",
