@@ -1,6 +1,5 @@
-let mongoose =  require("mongoose");
-
-let Animal = mongoose.model("Animal");
+const mongoose =  require("mongoose");
+let Animal = require("../models/Animal");
 let animalController = {};
 
 animalController.list = function(req, res) {
@@ -9,8 +8,9 @@ animalController.list = function(req, res) {
             console.log("The animals must have escaped!");
         } else {
             res.render("../views/index", {animals: animals});
+            console.log(animals);
         }
     });
-}
+};
 
 module.exports = animalController;

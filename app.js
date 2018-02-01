@@ -5,6 +5,7 @@ import express from "express";
 import mongoose from "mongoose";
 import open from "open";
 import path from "path";
+import router from "./routes/animals";
 
 var db;
 
@@ -14,7 +15,7 @@ const port = 3000;
 const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 
 //connect to database using the URI stated above
-module.exports = mongoose.connect(dbURI, function(err){
+mongoose.connect(dbURI, function(err){
     useMongoClient: true
 });
 
@@ -40,7 +41,10 @@ db.on("connected", function(){
     });
 });
 
-//set view engine to EJS
+//tell the app where to find routes
+let animals = require("./routes/animals");
+
+//setup EJS template engine
 app.set("view engine", "ejs");
 
 //render html from index.ejs template in /views folder
@@ -53,9 +57,6 @@ app.use(express.static("public"));
 
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
-
-//tell the app where to find routes
-let animals = require("./routes/animals");
 
 //use the route
 app.use("/animals", animals);

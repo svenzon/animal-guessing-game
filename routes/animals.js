@@ -1,8 +1,10 @@
 import express from "express";
 
-let router = express.Router();
-let animal = require("../controllers/AnimalController.js");
+const router = express.Router();
+const Animal = require("../controllers/AnimalController.js");
 
-router.get("/", animal.list);
+router.get("/", function(req, res) {
+    Animal.list(req, res);
+});
 
 module.exports = router;

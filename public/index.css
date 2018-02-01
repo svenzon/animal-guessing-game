@@ -2,8 +2,6 @@
 
 /* removes body margins, sets page bg color */
 body {
-    margin: 0;
-    padding: 0;
     background: #2F4F4F;
     background: -webkit-linear-gradient(to bottom, #fdbb2d, #22c1c3);
     background: linear-gradient(to bottom, #fdbb2d, #22c1c3);
@@ -57,7 +55,7 @@ button:active {
     padding: 8px;
     min-width: 360px;
     max-width: 600px;
-    background: #ffffff49;
+    background-color: #969696;
     border-bottom: 8px solid #696969;
     text-align: center;
 }

@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 //creates Mongoose schema for animals, restricting some fields to specific values
-let animalSchema = new mongoose.Schema({
+let AnimalSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -27,30 +27,4 @@ let animalSchema = new mongoose.Schema({
     },
 });
 
-var animal = mongoose.model("Animal", animalSchema);
-
-module.exports = animal;
-// var newAnimal = new Animal({
-//     name: "alligator",
-//     group: "reptile",
-//     diet: "carnivorous",
-//     size: "large",
-//     feature: ""
-// });
-
-// var newAnimal = new Animal({
-//     name: "crocodile",
-//     group: "reptile",
-//     diet: "carnivorous",
-//     size: "large",
-//     feature: ""
-// });
-
-// snake.save(function(err, snake){
-//     if(err) {
-//         console.log("Whoops");
-//     } else {
-//         console.log("Animal saved");
-//         console.log(snake);
-//     }
-// });
+module.exports = mongoose.model("Animal", AnimalSchema);
