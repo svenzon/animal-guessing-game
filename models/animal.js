@@ -24,7 +24,7 @@ let AnimalSchema = new mongoose.Schema({
     feature: {
         type: String,
         required: true
-    },
+    }
 });
 
 module.exports = mongoose.model("Animal", AnimalSchema);
