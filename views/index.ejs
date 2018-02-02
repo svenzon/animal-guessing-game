@@ -15,6 +15,30 @@
                 <input id="inputFeature" class="unavailable" type="text" name="featureInput" required>
             </form>
         </article>
+        <% if(animals.length>0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Group</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for (let i=0; i<animals.length;i++) { %>
+                        <tr>
+                            <td>
+                                <%= animals[i].name %>
+                            </td>
+                            <td>
+                                <%= animals[i].group %>
+                            </td>
+                        </tr>
+                        <% } %>
+                </tbody>
+            </table>
+            <% } else { %>
+                <p>The animals have escaped!</p>
+            <% } %>
         <script src="/index.js"></script>
     </body>
 </html>
