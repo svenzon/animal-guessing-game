@@ -12,10 +12,12 @@ var noBtn = document.querySelector("#noBtn");
 function init() {
     yesBtn.addEventListener("click", function () {
         //check answer and compare to db
+        console.log("Yes");
     });
 
     noBtn.addEventListener("click", function () {
         //check answer and compare to db
+        console.log("No");
     });
 }
 

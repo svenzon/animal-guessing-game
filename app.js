@@ -15,13 +15,13 @@ const port = 3000;
 const dbURI = "mongodb://letsplay:1234@ds111608.mlab.com:11608/animal-app";
 
 //connect to database using the URI stated above
-mongoose.connect(dbURI, function(err){
+module.exports = mongoose.connect(dbURI, function(err){
     useMongoClient: true
 });
 
 mongoose.Promise = global.Promise;
 
-//save database connection for re-use
+//save database connection
 db = mongoose.connection;
 
 //if db connection fails, print error message
@@ -38,11 +38,14 @@ db.on("connected", function(){
 
         console.log(chalk.blue(`We're going live on port ${port}!`));
         open("http://localhost:" + port);
+
+        //tell app where to find route and use it
+        let animals = require("./routes/animals");
+        app.use("/animals", animals);
     });
 });
 
 //tell the app where to find routes
-let animals = require("./routes/animals");
 
 //setup EJS template engine
 app.set("view engine", "ejs");
@@ -57,6 +60,3 @@ app.use(express.static("public"));
 
 //extract data from HTML
 app.use(bodyParser.urlencoded({extended: true}));
-
-//use the route
-app.use("/animals", animals);

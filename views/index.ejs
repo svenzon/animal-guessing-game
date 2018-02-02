@@ -5,39 +5,16 @@
         <link rel="stylesheet" href="/index.css">
     </head>
     <body>
-        <article id="content">
-            <h1>Incredibly Exciting Animal Guessing Game</h1>
-            <h2 id="questionDisplay">Question goes here.</h2>
+        <h1 id="gameTitle">Incredibly Exciting Animal Guessing Game</h1>
+        <h2 id="questionDisplay">Question goes here.</h2>
+        <article id="controls">
             <button id="yesBtn">Yeah</button>
             <button id="noBtn">Nah</button>
             <form action="/animals" method="POST">
                 <input id="inputAnimal"  class="unavailable" type="text" name="animalInput" required>
+                <input id="inputFeature" class="unavailable" type="text" name="featureInput" required>
             </form>
         </article>
-        <% if(animals.length>0) { %>
-        <table>
-            <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Group</th>
-                </tr>
-            </thead>
-            <tbody>
-                <% for (let i=0; i<animals.length;i++) { %>
-                    <tr>
-                        <td>
-                            <%= animals[i].name %>
-                        </td>
-                        <td>
-                            <%= animals[i].group %>
-                        </td>
-                    </tr>
-                    <% } %>
-            </tbody>
-        </table>
-        <% } else { %>
-            <p>The animals have escaped!</p>
-        <% } %>
         <script src="/index.js"></script>
     </body>
 </html>

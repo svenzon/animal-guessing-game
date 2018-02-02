@@ -6,22 +6,27 @@ body {
     background: -webkit-linear-gradient(to bottom, #fdbb2d, #22c1c3);
     background: linear-gradient(to bottom, #fdbb2d, #22c1c3);
     font-family: 'Josefin Sans', sans-serif;
-    color: #ffffff;
 }
 
 /* pushes the page title down a bit, gives it golden color */
 h1 {
-    color:#EEE8AA;
+    margin-top: 5%;
+    text-align: center;
+    color:#F1ECBB;
+}
+
+h2 {
+    text-align: center;
+    color: #ffffff;
 }
 
 /* makes buttons round, adds border for 3D effect */
 button {
-    margin: 10px 20px;
+    margin: 20px 20px;
     height: 80px;
     width: 100px;
     border-radius: 50%;
     border-style: none;
-    border-bottom: 4px solid #696969;
     font-family: 'Josefin Sans', sans-serif;
     font-size: 20px;
 }
@@ -33,13 +38,6 @@ button:hover {
     color: #ffffff;
 }
 
-/* makes button looked pushed down when clicked */
-button:active {
-    height: 76px;
-    border-bottom: none;
-    transform: translateY(4px);
-}
-
 /* classes for toggling UI visibility */
 .available {
     display: block;
@@ -49,22 +47,37 @@ button:active {
     display: none;
 }
 
-/* centers text content and buttons */
-#content {
-    margin: 50px auto;
+/* makes UI look like a control panel */
+#controls {
+    margin: 40px auto;
     padding: 8px;
     min-width: 360px;
     max-width: 600px;
     background-color: #969696;
-    border-bottom: 8px solid #696969;
+    border-bottom: 10px solid #696969;
     text-align: center;
 }
 
 /* gives buttons gradients for glowing gameshow-like look */
 #yesBtn {
-    background-image: radial-gradient(circle, #00FF7F 35%, #00994C 65%);
+    background-image: radial-gradient(ellipse, #00FF7F 40%, #00994C 60%);
+    border-bottom: 4px solid #006B35;
 }
 
 #noBtn {
-    background-image: radial-gradient(circle, #DC143C 35%, #840C24 65%);
+    background-image: radial-gradient(ellipse, #DC143C 40%, #840C24 60%);
+    border-bottom: 4px solid #5C0819;
+}
+
+/* makes buttons look pushed down when clicked */
+#yesBtn:active {
+    height: 76px;
+    border-bottom: none;
+    transform: translateY(4px);
+}
+
+#noBtn:active {
+    height: 76px;
+    border-bottom: none;
+    transform: translateY(4px);
 }

@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+let mongoose = require("mongoose");
 
 //creates Mongoose schema for animals, restricting some fields to specific values
 let AnimalSchema = new mongoose.Schema({
